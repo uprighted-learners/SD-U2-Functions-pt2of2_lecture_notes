@@ -14,6 +14,12 @@
     3- The argument being passed when invoking the function. This defines the parameter's value.
 */
 
+function order(ticket) {
+    console.log(`I exchanged my ticket for a ${ticket}`);
+}
+
+order('cheese pizza');
+
 //? Quick Challenge:
 /*
     Write a function that takes two parameters:
@@ -24,8 +30,23 @@
         - call (invoke) your function
 */
 
-//! Arguments
+function myname(fName, lName) {
+    let fullName = fName + ' ' + lName;
+    console.log(`Hello, my name is ${fullName}`)
+}
 
+myname("Bruce", 'Wayne');
+
+//! Arguments
+let desc1 = 'tall person';
+let desc2 = 'short person';
+
+let thisFunction = function(info) {
+    console.log(info);
+}
+
+thisFunction(desc1);
+thisFunction(desc2);
 
 /*
         1. Our functions parameter. 
@@ -50,8 +71,26 @@
 */
 
 //? Concise Body
+let hi = () => console.log('hi')
+hi();
 
 //? Block Body
+let hi2 = () => {
+    console.log('hello there')
+    // requires a return
+    return 'hello';
+}
+
+// hi2()
+console.log(hi2())
+
+let apples1 = x => `There are ${x} apples`;
+console.log(apples1(10));
+
+let apples2 = x => {
+    return(`There are ${x} apples!`)
+}
+console.log(apples2(20));
 
 //! Return
 /*
@@ -70,3 +109,27 @@ let hi = () => {
     3- When called, the function becomes the value of the return
 */
 
+let firstName = fName => {
+    return 'steve'
+}
+
+let myName = firstName();
+console.log(myName);
+
+function capitalizeName(name) {
+    let capName = '';
+    for(let l in name) {
+        if(l == 0) {
+            capName += name[l].toUpperCase();
+        } else {
+            capName += name[l].toLowerCase();
+        }
+    }
+
+    return(capName);
+}
+
+const fixedName = capitalizeName(myName);
+console.log(fixedName);
+const newName = capitalizeName('zach');
+console.log(newName);
